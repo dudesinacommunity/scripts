@@ -1,0 +1,10 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  image: registry.dudelab.dev/docker/ansible-tofu:1.0.0
+  script:
+    - echo "$SSHKEY" | base64 -d >> sshkey
+    - chmod 600 sshkey
+    - ssh root@dude.sh /root/dude-sh/update.sh
