@@ -10,4 +10,4 @@ deploy:
     - echo "$SSHKEY" | base64 -d >> sshkey
     - chmod 644 ~/.ssh/known_hosts 
     - chmod 600 sshkey
-    - ssh root@dudes.sh /root/dudes-sh/update.sh
+    - ssh -i sshkey root@dudes.sh /root/dudes-sh/update.sh
