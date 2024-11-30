@@ -7,8 +7,8 @@ apt-get install realmd sssd sssd-tools libnss-sss libpam-sss adcli samba-common-
 echo "- Enabling password login"
 sudo sed -E -i 's/^#?PasswordAuthentication (no|yes)/PasswordAuthentication yes/' /etc/ssh/sshd_config && sudo systemctl restart sshd
 
-read "Domain: " AD_DOMAIN
-read "Username: " AD_USERNAME
+read -p "Domain: " AD_DOMAIN
+read -p "Username: " AD_USERNAME
 
 echo "- Joining domain"
 realm join --membership-software=samba --client-software=sssd --user="$AD_USERNAME" "$AD_DOMAIN"
