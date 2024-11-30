@@ -2,7 +2,7 @@ echo "- Setting timezone"
 timedatectl set-timezone Europe/Oslo
 
 echo "- Installing packages"
-apt install realmd sssd sssd-tools libnss-sss libpam-sss adcli samba-common-bin oddjob oddjob-mkhomedir packagekit -y > /dev/null
+apt-get install realmd sssd sssd-tools libnss-sss libpam-sss adcli samba-common-bin oddjob oddjob-mkhomedir packagekit -y > /dev/null
 
 echo "- Enabling password login"
 sudo sed -E -i 's/^#?PasswordAuthentication (no|yes)/PasswordAuthentication yes/' /etc/ssh/sshd_config && sudo systemctl restart sshd
