@@ -7,4 +7,4 @@ deploy:
   script:
     - echo "$SSHKEY" | base64 -d >> sshkey
     - chmod 600 sshkey
-    - ssh root@dude.sh /root/dude-sh/update.sh
+    - ssh root@dudes.sh /root/dudes-sh/update.sh
